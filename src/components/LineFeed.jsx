@@ -87,6 +87,7 @@ function Sound({ className, property1 = "on" }) {
 export default function LineFeed() {
   const [showDetailViewer, setShowDetailViewer] = useState(false);
   const [showConsentModal, setShowConsentModal] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
 
   const handleLiveUnitClick = () => {
     setShowDetailViewer(true);
@@ -94,18 +95,24 @@ export default function LineFeed() {
 
   // DetailViewer 슬라이드업 완료 후 팝업 표시
   useEffect(() => {
-    if (showDetailViewer) {
+    if (showDetailViewer && !isClosing) {
       const timer = setTimeout(() => {
         setShowConsentModal(true);
       }, 400); // 0.4초 후 팝업 표시
 
       return () => clearTimeout(timer);
     }
-  }, [showDetailViewer]);
+  }, [showDetailViewer, isClosing]);
 
   const handleCloseDetailViewer = () => {
-    setShowDetailViewer(false);
     setShowConsentModal(false);
+    setIsClosing(true);
+
+    // 슬라이드 다운 애니메이션 후 제거
+    setTimeout(() => {
+      setShowDetailViewer(false);
+      setIsClosing(false);
+    }, 400); // 0.4초 후 제거
   };
 
   const handleCloseModal = () => {
@@ -415,6 +422,7 @@ export default function LineFeed() {
       <LiveDetailViewer
         isOpen={showDetailViewer}
         onClose={handleCloseDetailViewer}
+        isClosing={isClosing}
       />
 
       {/* Live Consent Modal */}

@@ -25,15 +25,15 @@ const imgIosProfilePhoto6 = "https://www.figma.com/api/mcp/asset/e0ea844d-b40d-4
 const imgIosProfilePhoto7 = "https://www.figma.com/api/mcp/asset/0e8497c2-22e6-47b0-8e08-9504dbbe25b4";
 const imgIosProfilePhoto8 = "https://www.figma.com/api/mcp/asset/2f9390d9-99cd-4596-80b4-65defdfaab0c";
 
-export default function LiveDetailViewer({ isOpen, onClose, showConsent }) {
+export default function LiveDetailViewer({ isOpen, onClose, showConsent, isClosing }) {
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-40 flex items-center justify-center">
       <div
-        className="relative w-[375px] h-[812px] bg-black overflow-hidden animate-slide-up"
+        className="relative w-[375px] h-[812px] bg-black overflow-hidden"
         style={{
-          animation: 'slideUp 0.4s ease-out'
+          animation: isClosing ? 'slideDown 0.4s ease-out' : 'slideUp 0.4s ease-out'
         }}
       >
         {/* Status Bar */}
