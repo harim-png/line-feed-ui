@@ -103,10 +103,10 @@ export default function LiveUnitAnimated({ onClick }) {
   const [showLive, setShowLive] = useState(false);
 
   useEffect(() => {
-    // 2초 후 cover image 사라지고 live preview로 전환
+    // 4초 후 cover image 사라지고 live preview로 전환
     const timer = setTimeout(() => {
       setShowLive(true);
-    }, 2000);
+    }, 4000);
 
     return () => clearTimeout(timer);
   }, []);
