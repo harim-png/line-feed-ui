@@ -1,4 +1,7 @@
+import { useState, useEffect } from 'react';
 import LiveUnitAnimated from './LiveUnitAnimated';
+import LiveConsentModal from './LiveConsentModal';
+import LiveDetailViewer from './LiveDetailViewer';
 
 // Image assets from Figma
 const imgGroup2085663863 = "https://www.figma.com/api/mcp/asset/6b099b98-1bc0-458e-8616-6abf9c59e236";
@@ -82,6 +85,39 @@ function Sound({ className, property1 = "on" }) {
 }
 
 export default function LineFeed() {
+  const [showDetailViewer, setShowDetailViewer] = useState(false);
+  const [showConsentModal, setShowConsentModal] = useState(false);
+
+  const handleLiveUnitClick = () => {
+    setShowDetailViewer(true);
+  };
+
+  // DetailViewer 슬라이드업 완료 후 팝업 표시
+  useEffect(() => {
+    if (showDetailViewer) {
+      const timer = setTimeout(() => {
+        setShowConsentModal(true);
+      }, 400); // 0.4초 후 팝업 표시
+
+      return () => clearTimeout(timer);
+    }
+  }, [showDetailViewer]);
+
+  const handleCloseDetailViewer = () => {
+    setShowDetailViewer(false);
+    setShowConsentModal(false);
+  };
+
+  const handleCloseModal = () => {
+    // modal만 닫고 detail viewer는 유지
+    setShowConsentModal(false);
+  };
+
+  const handleAgree = () => {
+    setShowConsentModal(false);
+    // detail viewer는 계속 열린 상태로 라이브 재생
+  };
+
   return (
     <div className="bg-white relative size-full">
       {/* Status Bar */}
@@ -147,7 +183,7 @@ export default function LineFeed() {
       {/* Feed Content */}
       <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[22px] items-start left-1/2 top-[99px] w-[375px]">
         {/* LIVE Unit with Animation */}
-        <LiveUnitAnimated />
+        <LiveUnitAnimated onClick={handleLiveUnitClick} />
 
         {/* Image Post 16:9 */}
         <div className="content-stretch flex flex-col gap-[8px] items-center relative shrink-0 w-full">
@@ -374,6 +410,19 @@ export default function LineFeed() {
         </div>
         <HomeIndicator className="absolute bottom-0 h-[34px] left-[120px] w-[134px]" />
       </div>
+
+      {/* Live Detail Viewer */}
+      <LiveDetailViewer
+        isOpen={showDetailViewer}
+        onClose={handleCloseDetailViewer}
+      />
+
+      {/* Live Consent Modal */}
+      <LiveConsentModal
+        isOpen={showConsentModal}
+        onClose={handleCloseModal}
+        onAgree={handleAgree}
+      />
     </div>
   );
 }

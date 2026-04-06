@@ -99,7 +99,7 @@ function CountingNumber({ targetNumber, isActive }) {
   return displayCount.toLocaleString('ja-JP');
 }
 
-export default function LiveUnitAnimated() {
+export default function LiveUnitAnimated({ onClick }) {
   const [showLive, setShowLive] = useState(false);
 
   useEffect(() => {
@@ -112,7 +112,10 @@ export default function LiveUnitAnimated() {
   }, []);
 
   return (
-    <div className="content-stretch flex flex-col gap-[8px] items-center relative shrink-0 w-full">
+    <div
+      onClick={onClick}
+      className="content-stretch flex flex-col gap-[8px] items-center relative shrink-0 w-full cursor-pointer"
+    >
       {/* Profile Header */}
       <div className="h-[32px] relative shrink-0 w-[375px]">
         <div className="absolute content-stretch flex gap-[8px] h-[32px] items-center left-[16px] top-0">
