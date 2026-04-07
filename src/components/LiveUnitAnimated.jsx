@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 
-const imgGroup = "https://www.figma.com/api/mcp/asset/aed44f59-725f-4aa9-810e-cbdddbec07fb";
-const imgImage = "https://www.figma.com/api/mcp/asset/3143be50-2fd5-40d5-a6d6-797228b14bd6";
+const imgGroup = "https://www.figma.com/api/mcp/asset/127b1a18-88c7-430b-bff8-3f7aef6bb793";
+const imgImage = "https://www.figma.com/api/mcp/asset/b2492edf-da1f-4f70-94a5-13b9f90545dd";
 const imgImagePreview = "https://www.figma.com/api/mcp/asset/6bafe117-e416-4348-8a34-ffe88afff760";
-const imgChatroomRecordSend = "https://www.figma.com/api/mcp/asset/79b6008b-aa4a-48d9-8adb-02f2d6b64f19";
-const imgRectangle1664144543 = "https://www.figma.com/api/mcp/asset/34739e32-b0d1-4e58-a349-41c49816ecbc";
-const imgVector = "https://www.figma.com/api/mcp/asset/37c3d3d8-48a0-429f-a0b4-d2cf05fe17b1";
+const imgChatroomRecordSend = "https://www.figma.com/api/mcp/asset/aa60ab82-5ac0-4c88-834c-3603084046a7";
+const imgRectangle1664144543 = "https://www.figma.com/api/mcp/asset/bd9be7dd-fa9c-4142-a71c-4500e98f84a7";
+const imgVector = "https://www.figma.com/api/mcp/asset/454f8a23-9cbb-4e61-b785-a391dbe4df30";
 
 function HomeFeedVideoSoundOn({ className }) {
   return (
