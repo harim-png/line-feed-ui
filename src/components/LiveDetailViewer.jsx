@@ -29,7 +29,7 @@ export default function LiveDetailViewer({ isOpen, onClose, showConsent, isClosi
   if (!isOpen) return null;
 
   return (
-    <div className="absolute inset-0 z-40 flex items-center justify-center">
+    <div className="fixed inset-0 z-40 flex items-center justify-center">
       <div
         className="relative w-[375px] h-[812px] bg-black overflow-hidden"
         style={{
