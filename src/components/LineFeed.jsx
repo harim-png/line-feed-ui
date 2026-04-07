@@ -4,7 +4,7 @@ import LiveConsentModal from './LiveConsentModal';
 import LiveDetailViewer from './LiveDetailViewer';
 
 // Image assets from Figma
-const imgGroup2085663863 = "https://www.figma.com/api/mcp/asset/ce87397e-4f3e-43a7-8ee8-2e3524206081";
+const imgGroup2085663863 = "https://www.figma.com/api/mcp/asset/6b099b98-1bc0-458e-8616-6abf9c59e236";
 const imgRectangle1664144543 = "https://www.figma.com/api/mcp/asset/34739e32-b0d1-4e58-a349-41c49816ecbc";
 const imgVector = "https://www.figma.com/api/mcp/asset/37c3d3d8-48a0-429f-a0b4-d2cf05fe17b1";
 const imgGroup = "https://www.figma.com/api/mcp/asset/aed44f59-725f-4aa9-810e-cbdddbec07fb";
